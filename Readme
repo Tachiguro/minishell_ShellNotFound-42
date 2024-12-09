@@ -11,3 +11,5 @@ Hot to work with git:
 5. git commmit -m "Comment"
 6. git pull
 7. git push
+
+git log
