@@ -1,4 +1,6 @@
+#include <stdio.h>
+
 int main()
 {
-  return;
+  printf("Hey\n");
 }
