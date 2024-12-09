@@ -9,4 +9,23 @@ How to work with git:
 7. git push
 
 git log
-oijjioipj
+
+Links & Sources
+
+Erklärung zum Minishell Projekt (Verständnis, Funktionen und dessen Beispiele)
+https://42-cursus.gitbook.io/guide/rank-03/minishell/functions
+
+Guide zu Minishell 42
+https://medium.com/@abkabex/minishell-42-f680eadde592
+
+Guide um eine Shell in C zu programmieren
+https://medium.com/@WinnieNgina/guide-to-code-a-simple-shell-in-c-bd4a3a4c41cd
+
+baue eine mini bash (42 Project)
+https://m4nnb3ll.medium.com/minishell-building-a-mini-bash-a-42-project-b55a10598218
+
+Schreibe deine eigene Shell
+https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf
+
+Generelle Shell erklärung (Was is eine Shell?)
+https://www.datacamp.com/blog/what-is-shell
