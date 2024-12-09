@@ -1,3 +1,13 @@
 Test
 Hey!
-asl;dkfj
+
+
+Hot to work with git:
+
+1. git pull
+2. git status
+3. git add <file/s>
+4. git status
+5. git commmit -m "Comment"
+6. git pull
+7. git push
