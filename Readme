@@ -30,8 +30,18 @@ https://medium.com/@WinnieNgina/guide-to-code-a-simple-shell-in-c-bd4a3a4c41cd
 baue eine mini bash (42 Project)
 https://m4nnb3ll.medium.com/minishell-building-a-mini-bash-a-42-project-b55a10598218
 
-Schreibe deine eigene Shell
+Schreibe deine eigene Shell <.. was das ? ^^
+
 https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf
 
 Generelle Shell erklärung (Was is eine Shell?)
 https://www.datacamp.com/blog/what-is-shell
+
+
+================================================================================================
+Planung:
+
+
+Also von dem was ich verstanden habe, müssen wir eine Schnittstelle programmieren,
+in der Befehle ausgeführt werden können und auch quasi miteinanden kombiniert werden können mit | und < oder >
+
