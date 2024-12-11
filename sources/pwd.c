@@ -16,6 +16,7 @@
 static int	ft_pwd(void)
 {
 	char	*cwd;
+
 	cwd = NULL;
 	cwd = getcwd(cwd, 0);
 	if (!cwd)
