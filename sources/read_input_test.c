@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   read_input_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 11:10:47 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/12/11 12:55:11 by bjbogisc         ###   ########.fr       */
+/*   Created: 2024/12/05 12:20:17 by bjbogisc          #+#    #+#             */
+/*   Updated: 2024/12/11 13:37:57 by bjbogisc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "minishell.h"
 
-# include "minishell.h"
-
-typedef enum e_token_types
+int main(void)
 {
-	T_WORD,			// " ls " " -l " " grep " " a " " file "
-	T_PIPE,			// " | "
-	T_INPUT,		// " < "
-	T_OUTPUT,		// " > "
-	T_HEREDOC,		// " << "
-	T_APPEND,		// " >> "
-	T_SINGLEQUOTE,	// " '' "
-	T_DOUBLEQUOTE,	// " "" "
-}			t_token_types;
+	char	*read;
 
-
-
-
-
-#endif
+	while(1)
+	{
+		read = promt();
+		printf("%s\n", read);
+		ft_pwd(); // NOTE: soll nur bei dem "pwd" Befehl cwd ausgeben 
+	}	
+}

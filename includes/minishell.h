@@ -6,7 +6,7 @@
 /*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:10:44 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/12/11 11:02:50 by bjbogisc         ###   ########.fr       */
+/*   Updated: 2024/12/11 13:13:50 by bjbogisc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <signal.h>
 # include "parser.h"
 
-
+char		*promt(void);
+void		ft_pwd(void);
 
 #endif
