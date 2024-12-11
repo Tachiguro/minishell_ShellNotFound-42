@@ -22,6 +22,7 @@ char	*promt(void)
 	if (!input)
 	{
 		printf("Until next time!");
+		rl_clear_history();
 		exit (0);
 	}
 	return (input);
