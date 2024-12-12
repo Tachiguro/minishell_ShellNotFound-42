@@ -47,3 +47,23 @@ habe soweit alles gepusht was ich beim testen geschrieben habe, musste die Makef
 Die Funktion "prompt.c" erwartet einen Input, liest ihn und gibt ihn wieder aus, history funktioniert, man kann mit den Pfeiltasten hoch und runter gehen,
 um zu sehen was eingegeben wurde.
 Die Current Working Directory wird auch mit ausgegeben, was allerdings später nur mit "pwd" passieren soll.
+
+
+1.  Search and launch the right executable (based on the PATH variable or using a
+relative or an absolute path).
+
+Bsp. 
+Search and launch the right executable (based on the PATH variable or using a
+relative or an absolute path).
+	cat
+	/usr/bin/cat
+
+Unterschied ist nut "/"
+
+2. env == $PATH +/-
+   - Beim start einlesen (ausfuren von ./shell*)
+   - Eigene Variablen anpassen wie SHELL, SHLVL, OLDPWD
+
+3. zuerst apsoluter path dann relativer
+
+
