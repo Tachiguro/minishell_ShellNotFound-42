@@ -6,7 +6,7 @@
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:10:44 by bjbogisc          #+#    #+#             */
-/*   Updated: 2025/01/06 17:25:30 by aortmann         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:43:28 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,18 @@
 
 # define BUF 100 //buffer für input
 
+//struct für variablen
+typedef struct s_variables
+{
 
+}	t_vars;
+
+//linked list
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 
 
