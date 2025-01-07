@@ -6,7 +6,7 @@
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:10:44 by bjbogisc          #+#    #+#             */
-/*   Updated: 2025/01/06 17:05:01 by aortmann         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:25:30 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # include <dirent.h> //added
 # include <termcap.h> //added
 
-
+# define BUF 100 //buffer für input
 
 
 

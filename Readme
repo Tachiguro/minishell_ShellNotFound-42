@@ -67,3 +67,10 @@ Unterschied ist nut "/"
 3. zuerst apsoluter path dann relativer
 
 
+
+errors:
+-------------------------------------
+ls -ü                               
+ls: invalid option -- '�'            
+Try 'ls --help' for more information.
+-------------------------------------
