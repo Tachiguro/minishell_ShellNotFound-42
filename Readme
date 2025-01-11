@@ -205,3 +205,36 @@ Sends the signal sig to the process with process ID pid.
 Can be used to terminate processes (SIGKILL), interrupt them (SIGINT), etc.
 -------------------------------------
 
+
+###################
+Aufgabenverteilung:
+###################
+
+Tachiguro (Parsing und Tokenisierung):
+
+1. Input Handling:
+Implementiere das Lesen der Eingabe mit readline, um Nutzereingaben korrekt zu erfassen und zur Befehlshistorie hinzuzufügen.
+
+2. Tokenisierung:
+Entwickle Funktionen, die die Eingabezeilen in Tokens zerlegen, um Befehle, Optionen, Pfade und spezielle Symbole wie Umleitungs- oder Pipeline-Zeichen zu identifizieren.
+
+3. Syntaxanalyse (Parsing):
+Überprüfe die Struktur der tokenisierten Eingabe auf Korrektheit und organisiere die Befehle und ihre Argumente sinnvoll für die Ausführung.
+Handle spezielle Fälle wie Anführungszeichen und Escape-Zeichen.
+
+
+Alvin (Befehlsausführung und Systeminteraktion):
+
+1. Interne Befehle:
+Implementiere Built-in-Befehle wie cd, echo, exit, und pwd, die speziell von der Shell verarbeitet werden.
+
+2. Externe Befehle:
+Entwickle die Logik zur Ausführung externer Befehle mit fork() und execve, einschließlich des korrekten Startens von Programmen basierend auf dem PATH.
+
+3. Erweiterte Features:
+Implementiere Funktionen für Umleitungen und Pipelines, um Ausgaben zwischen Befehlen zu vermitteln oder in Dateien umzuleiten.
+
+4. Signalhandling:
+Setze das Verhalten für Signale wie SIGINT (Ctrl-C) und SIGTSTP (Ctrl-Z), um eine konsistente Nutzererfahrung zu gewährleisten.
+
+Wenn es noch geht, bitte zusätzlich Unittest schreiben.
