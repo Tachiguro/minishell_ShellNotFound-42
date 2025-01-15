@@ -3,22 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 10:21:04 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/12/11 13:49:06 by bjbogisc         ###   ########.fr       */
+/*   Created: 2025/01/15 16:51:23 by aortmann          #+#    #+#             */
+/*   Updated: 2025/01/15 16:59:34 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-// get the current working directory
-void	ft_pwd(void) // unsicher welchen typ ich nutzen soll....
+int	pwd(void)
 {
-	char	*cwd;
+	char	*buffer;
+	size_t	size;
 
-	cwd = NULL;
-	cwd = getcwd(cwd, 0);
-	ft_putstr_fd(cwd, 1);
-	ft_putchar_fd('\n', 1);
+	buffer = NULL;
+	size = 0;
+	buffer = getcwd(buffer, size);
+	if (buffer == NULL)
+	{
+		perror("Error retrieving current directory");
+		return (1);
+	}
+	printf("%s\n", buffer);
+	free(buffer);
+	return (0);
 }
