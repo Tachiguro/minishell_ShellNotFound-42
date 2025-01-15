@@ -6,15 +6,15 @@
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:54 by aortmann          #+#    #+#             */
-/*   Updated: 2025/01/15 17:22:50 by aortmann         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:11:19 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void close_fds(void)
+void	close_fds(void)
 {
-	int fd;
+	int	fd;
 
 	fd = 3;
 	while (fd < 1024)
@@ -24,7 +24,7 @@ void close_fds(void)
 	}
 }
 
-ft_exit(char **args)
+int	ft_exit(char **args)
 {
 	int	status;
 	int	i;
