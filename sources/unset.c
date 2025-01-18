@@ -6,7 +6,7 @@
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:58:54 by aortmann          #+#    #+#             */
-/*   Updated: 2025/01/15 19:16:09 by aortmann         ###   ########.fr       */
+/*   Updated: 2025/01/17 13:47:58 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_unset(char *name)
 	name_len = ft_strlen(name);
 	while (environ[i] != NULL)
 	{
-		if (strncmp(environ[i], name, name_len) == 0
+		if (ft_strncmp(environ[i], name, name_len) == 0
 			&& environ[i][name_len] == '=')
 		{
 			j = i;
