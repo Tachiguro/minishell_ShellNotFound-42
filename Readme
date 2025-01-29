@@ -67,3 +67,174 @@ Unterschied ist nut "/"
 3. zuerst apsoluter path dann relativer
 
 
+
+errors:
+-------------------------------------
+ls -ü                               
+ls: invalid option -- '�'            
+Try 'ls --help' for more information.
+-------------------------------------
+
+-------------------------------------
+#####################################
+GNU Readline and History Functions ##
+#####################################
+-------------------------------------
+
+char *readline(const char *prompt);
+Description:
+Reads a line of input from the user with interactive editing capabilities.
+Displays the provided prompt string before waiting for input.
+Supports features like arrow key navigation, history recall, and more.
+-------------------------------------
+void rl_clear_history(void);
+Description:
+Clears all entries from the history list.
+-------------------------------------
+void rl_on_new_line(void);
+Description:
+Notifies Readline that the cursor is now on a new (empty) line.
+Useful when handling signals like SIGINT to reset the prompt correctly.
+-------------------------------------
+void rl_replace_line(const char *text, int clear_undo);
+Description:
+Replaces the current contents of the Readline editing buffer with text.
+If clear_undo is non-zero, the undo list is cleared.
+-------------------------------------
+void rl_redisplay(void);
+Description:
+Forces Readline to redraw the current line. Useful after making changes to the buffer programmatically.
+-------------------------------------
+void add_history(const char *line);
+Description:
+Adds line to the history list, allowing the user to recall it with the Up arrow.
+-------------------------------------
+void exit(int status);
+Description:
+Terminates the program immediately.
+Performs cleanup tasks like flushing I/O buffers and calling functions registered with atexit.
+At exit man-> https://man7.org/linux/man-pages/man3/atexit.3.html
+-------------------------------------
+char *getenv(const char *name);
+Description:
+Retrieves the value of the environment variable name.
+Returns NULL if the variable is not found.
+-------------------------------------
+char *strerror(int errnum);
+Description:
+Returns a pointer to the textual representation of the error number errnum.
+-------------------------------------
+
+#####################################
+POSIX System Calls (File I/O) #######
+#####################################
+-------------------------------------
+int access(const char *pathname, int mode);
+Description:
+Checks the file permissions specified by mode for the file pathname.
+mode can be F_OK (existence), R_OK (read), W_OK (write), and X_OK (execute).
+-------------------------------------
+int open(const char *pathname, int flags, mode_t mode);
+Description:
+Opens the file pathname with the specified flags and mode.
+flags can include O_RDONLY, O_WRONLY, O_RDWR, O_CREAT, O_APPEND, etc.
+mode specifies permissions when creating a file (e.g., 0644).
+Returns a file descriptor or -1 on error.
+-------------------------------------
+int unlink(const char *pathname);
+Description:
+Removes the directory entry for pathname. If this is the last link to the file and no processes have it open, the file is deleted.
+-------------------------------------
+
+#####################################
+Process Control Functions ###########
+#####################################
+-------------------------------------
+pid_t fork(void);
+Description:
+Creates a new process by duplicating the calling process.
+The new process is the child, and the original is the parent.
+Returns 0 to the child process, the child's PID to the parent, or -1 on error.
+-------------------------------------
+pid_t wait(int *status);
+Description:
+Waits for any child process to change state.
+The exit status of the child is stored in *status.
+Returns the PID of the terminated child or -1 on error.
+-------------------------------------
+pid_t waitpid(pid_t pid, int *status, int options);
+Description:
+Waits for a specific child process (pid) to change state.
+options can modify behavior (e.g., WNOHANG to return immediately if no child has exited).
+Returns the PID of the child, 0 if WNOHANG is set and no child has exited, or -1 on error.
+-------------------------------------
+pid_t wait3(int *status, int options, struct rusage *rusage);
+pid_t wait4(pid_t pid, int *status, int options, struct rusage *rusage);
+Description:
+wait3 waits for any child process and optionally fills a struct rusage with resource usage.
+wait4 waits for a specific child process (pid) and fills struct rusage.
+Both are BSD extensions and may not be available on all Unix-like systems.
+-------------------------------------
+
+#####################################
+Process Control Functions ###########
+#####################################
+-------------------------------------
+void (*signal(int signum, void (*handler)(int)))(int);
+Description:
+Sets a handler function for the signal signum.
+Returns the previous handler or SIG_ERR on error.
+-------------------------------------
+int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
+Description:
+More powerful and flexible than signal().
+Allows specifying additional options for signal handling.
+Can block other signals during handler execution, specify flags, etc.
+-------------------------------------
+int sigemptyset(sigset_t *set);
+Description:
+Initializes the signal set set to exclude all signals.
+-------------------------------------
+int sigaddset(sigset_t *set, int signum);
+Description:
+Adds the signal signum to the signal set set.
+-------------------------------------
+int kill(pid_t pid, int sig);
+Description:
+Sends the signal sig to the process with process ID pid.
+Can be used to terminate processes (SIGKILL), interrupt them (SIGINT), etc.
+-------------------------------------
+
+
+###################
+Aufgabenverteilung:
+###################
+
+Tachiguro (Parsing und Tokenisierung):
+
+1. Input Handling:
+Implementiere das Lesen der Eingabe mit readline, um Nutzereingaben korrekt zu erfassen und zur Befehlshistorie hinzuzufügen.
+
+2. Tokenisierung:
+Entwickle Funktionen, die die Eingabezeilen in Tokens zerlegen, um Befehle, Optionen, Pfade und spezielle Symbole wie Umleitungs- oder Pipeline-Zeichen zu identifizieren.
+
+3. Syntaxanalyse (Parsing):
+Überprüfe die Struktur der tokenisierten Eingabe auf Korrektheit und organisiere die Befehle und ihre Argumente sinnvoll für die Ausführung.
+Handle spezielle Fälle wie Anführungszeichen und Escape-Zeichen.
+
+
+Alvin (Befehlsausführung und Systeminteraktion):
+
+1. Interne Befehle:
+Implementiere Built-in-Befehle wie cd, echo, exit, und pwd, die speziell von der Shell verarbeitet werden.
+
+2. Externe Befehle:
+Entwickle die Logik zur Ausführung externer Befehle mit fork() und execve, einschließlich des korrekten Startens von Programmen basierend auf dem PATH.
+
+3. Erweiterte Features:
+Implementiere Funktionen für Umleitungen und Pipelines, um Ausgaben zwischen Befehlen zu vermitteln oder in Dateien umzuleiten.
+
+4. Signalhandling:
+Setze das Verhalten für Signale wie SIGINT (Ctrl-C) und SIGTSTP (Ctrl-Z), um eine konsistente Nutzererfahrung zu gewährleisten.
+
+Wenn es noch geht, bitte zusätzlich Unittest schreiben.

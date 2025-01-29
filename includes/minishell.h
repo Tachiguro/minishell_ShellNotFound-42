@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:10:44 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/12/11 13:13:50 by bjbogisc         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:43:28 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MINISHELL_H
 
 # include "../libft/libft.h"
+# include <unistd.h> //added
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
@@ -24,6 +25,28 @@
 # include <termios.h>
 # include <signal.h>
 # include "parser.h"
+# include <stdlib.h> //added
+# include <sys/types.h> //added
+# include <sys/wait.h> //added
+# include <dirent.h> //added
+# include <termcap.h> //added
+
+# define BUF 100 //buffer für input
+
+//struct für variablen
+typedef struct s_variables
+{
+
+}	t_vars;
+
+//linked list
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+
 
 char		*promt(void);
 void		ft_pwd(void);

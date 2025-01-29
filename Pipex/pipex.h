@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 16:51:23 by aortmann          #+#    #+#             */
-/*   Updated: 2025/01/15 16:59:34 by aortmann         ###   ########.fr       */
+/*   Created: 2024/12/09 14:51:06 by aortmann          #+#    #+#             */
+/*   Updated: 2024/12/09 14:51:27 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#ifndef PIPEX_H
+# define PIPEX_H
 
-int	pwd(void)
-{
-	char	*buffer;
-	size_t	size;
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 
-	buffer = NULL;
-	size = 0;
-	buffer = getcwd(buffer, size);
-	if (buffer == NULL)
-	{
-		perror("Error retrieving current directory");
-		return (1);
-	}
-	printf("%s\n", buffer);
-	free(buffer);
-	return (0);
-}
+#endif

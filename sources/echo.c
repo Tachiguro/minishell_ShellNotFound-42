@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 16:51:23 by aortmann          #+#    #+#             */
-/*   Updated: 2025/01/15 16:59:34 by aortmann         ###   ########.fr       */
+/*   Created: 2025/01/15 16:32:50 by aortmann          #+#    #+#             */
+/*   Updated: 2025/01/15 16:45:34 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
+#include <stddef.h>
 #include <stdio.h>
 
-int	pwd(void)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	char	*buffer;
-	size_t	size;
+	size_t	i;
 
-	buffer = NULL;
-	size = 0;
-	buffer = getcwd(buffer, size);
-	if (buffer == NULL)
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+void	echo(char *str, char *flag)
+{
+	if (ft_strcmp(flag, "-n")) //flag != -n
+		printf("%s \n", str);
+	else
 	{
-		perror("Error retrieving current directory");
-		return (1);
+		printf("%s", str);
 	}
-	printf("%s\n", buffer);
-	free(buffer);
-	return (0);
 }

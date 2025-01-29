@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 16:51:23 by aortmann          #+#    #+#             */
-/*   Updated: 2025/01/15 16:59:34 by aortmann         ###   ########.fr       */
+/*   Created: 2025/01/15 18:58:54 by aortmann          #+#    #+#             */
+/*   Updated: 2025/01/17 13:47:58 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "minishell.h"
 
-int	pwd(void)
+extern char	**environ;
+
+void	ft_unset(char *name)
 {
-	char	*buffer;
-	size_t	size;
+	size_t	name_len;
+	int		flag;
+	int		i;
+	int		j;
 
-	buffer = NULL;
-	size = 0;
-	buffer = getcwd(buffer, size);
-	if (buffer == NULL)
+	i = 0;
+	name_len = ft_strlen(name);
+	while (environ[i] != NULL)
 	{
-		perror("Error retrieving current directory");
-		return (1);
+		if (ft_strncmp(environ[i], name, name_len) == 0
+			&& environ[i][name_len] == '=')
+		{
+			j = i;
+			while (environ[j] != NULL)
+			{
+				environ[j] = environ[j + 1];
+				j++;
+			}
+			break ;
+		}
+		i++;
 	}
-	printf("%s\n", buffer);
-	free(buffer);
-	return (0);
 }
