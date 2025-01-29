@@ -3,31 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 10:57:12 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/06/13 10:55:13 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/07/13 18:29:35 by jherzog           #+#    #+#             */
+/*   Updated: 2023/07/13 18:30:03 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (*s++)
 		i++;
 	return (i);
 }
-
-// int	main(void)
-// {
-// 	char *str;
-
-// 	str = "Hello";
-// 	printf("the lentgh of the string is %d\n", ft_strlen(str));
-// 	return (0);
-// }

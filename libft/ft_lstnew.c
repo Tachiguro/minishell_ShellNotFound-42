@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_unsigned.c                                   :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 10:07:02 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/08/15 11:44:11 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/09/26 00:02:52 by jherzog           #+#    #+#             */
+/*   Updated: 2023/09/26 20:03:16 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	print_unsigned(unsigned int nbr)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
+	t_list	*node;
 
-	i = 0;
-	if (nbr / 10 > 0)
-		i += print_unsigned(nbr / 10);
-	i += print_char((nbr % 10) + '0');
-	return (i);
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
-// %u - print an unsigned number

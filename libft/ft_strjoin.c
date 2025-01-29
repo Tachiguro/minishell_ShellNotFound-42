@@ -3,48 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 10:57:03 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/06/20 14:05:08 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/07/13 18:29:29 by jherzog           #+#    #+#             */
+/*   Updated: 2024/04/03 15:57:49 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
-char	*ft_strjoin(const char *str1, const char *str2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	len1;
-	unsigned int	len2;
-	char			*slen;
-	char			*start;
+	char	*str;
+	int		total_len;
 
-	len1 = ft_strlen(str1);
-	len2 = ft_strlen(str2);
-	slen = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (slen == NULL)
+	total_len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!s1 || !s2)
 		return (NULL);
-	start = slen;
-	while (*str1)
-		*slen++ = *str1++;
-	while (*str2)
-		*slen++ = *str2++;
-	*slen = '\0';
-	return (start);
+	str = (char *)malloc(sizeof(char) * total_len);
+	if (str == NULL)
+		return (NULL);
+	str[0] = '\0';
+	ft_strlcat(str, s1, total_len);
+	ft_strlcat(str, s2, total_len);
+	return (str);
 }
-
-// int main(void)
-// {
-// 	const char	*src1;
-// 	const char	*src2;
-// 	char		*join;
-// 	src1 = "Beep";
-// 	src2 = " Boop";
-// 	join = ft_strjoin(src1, src2);
-// 	printf("String 1: %s\n", src1);
-// 	printf("String 2: %s\n", src2);
-// 	printf("Combined string: %s\n", join);
-// 	free(join);
-// 	return (0);
-// }

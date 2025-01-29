@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 12:27:16 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/08/15 11:43:54 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/12/19 00:22:06 by jherzog           #+#    #+#             */
+/*   Updated: 2023/12/19 00:46:16 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	print_int(long nbr)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	i;
+	t_list	*current;
+	t_list	*next;
 
-	i = 0;
-	if (nbr < 0)
+	if (!lst || !del)
+		return ;
+	current = *lst;
+	next = NULL;
+	while (current)
 	{
-		i += print_char('-');
-		nbr = -nbr;
+		next = current->next;
+		ft_lstdelone(current, del);
+		current = next;
 	}
-	if (nbr / 10)
-		i += print_int(nbr / 10);
-	i += print_char((nbr % 10) + '0');
-	return (i);
+	*lst = NULL;
 }
-// %d/%i - print a decimal (base 10 )number or an integer in base 10.

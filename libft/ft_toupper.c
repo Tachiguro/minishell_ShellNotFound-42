@@ -3,34 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 10:57:28 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/06/13 10:53:23 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/07/13 18:29:53 by jherzog           #+#    #+#             */
+/*   Updated: 2023/08/09 16:36:15 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-// #include <stdio.h>
-
 int	ft_toupper(int c)
 {
-	if (c >= 97 && c <= 122)
-	{
-		c = c -32;
-		return (c);
-	}
-	else
-		return (c);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
-
-// int main(void)
-// {
-// 	char ch;
-
-// 	ch = '1';
-// 	printf("Before conversion: %c\n", ch);
-// 	ft_toupper(ch);
-// 	printf("After conversion: %c\n", ft_toupper(ch));
-// 	return (0);
-// }

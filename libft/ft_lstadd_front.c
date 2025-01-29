@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_percent.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 10:17:03 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/08/15 11:43:58 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/09/26 20:01:47 by jherzog           #+#    #+#             */
+/*   Updated: 2023/12/18 20:52:21 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	print_percent(void)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	print_char('%');
-	return (1);
+	if (!new || !lst)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
-// %% - print a literal percen sign

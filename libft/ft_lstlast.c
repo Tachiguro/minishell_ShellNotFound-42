@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstget.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/26 12:30:49 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/08/26 13:49:54 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/09/26 20:38:19 by jherzog           #+#    #+#             */
+/*   Updated: 2023/09/26 20:41:43 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstget(t_list *lst, int index)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*n;
-	int		i;
-
-	i = 0;
-	n = lst;
-	if (n == NULL)
+	if (!lst)
 		return (NULL);
-	if (n->next == NULL)
-		return (n);
-	while (n != NULL)
+	while (lst->next != NULL)
 	{
-		if (i >= index)
-			return (n);
-		n = n->next;
-		i++;
+		lst = lst->next;
 	}
-	return (NULL);
+	return (lst);
 }

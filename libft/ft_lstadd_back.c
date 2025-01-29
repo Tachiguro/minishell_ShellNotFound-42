@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 10:06:41 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/08/15 11:44:04 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/09/26 20:42:35 by jherzog           #+#    #+#             */
+/*   Updated: 2023/09/26 21:04:27 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	print_pointer(void *ptr)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*temp;
 
-	i = 0;
-	if (ptr == NULL)
-		return (print_string("(nil)"));
-	i += print_string("0x");
-	i += print_hex((size_t)ptr, "0123456789abcdef");
-	return (i);
+	temp = NULL;
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	temp = ft_lstlast(*lst);
+	temp->next = new;
 }
-// %p - print a pointer address in hexadecimal

@@ -3,66 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 10:57:06 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/06/21 10:57:25 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/07/13 18:29:31 by jherzog           #+#    #+#             */
+/*   Updated: 2023/07/13 18:30:03 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t len)
 {
-	size_t	ldest;
-	size_t	lsrc;
 	size_t	i;
+	size_t	j;
+	size_t	destlen;
+	size_t	srclen;
 
-	ldest = ft_strlen(dest);
-	lsrc = ft_strlen(src);
-	if (size == 0)
-		return (lsrc);
-	if (ldest >= size)
-		return (lsrc + size);
 	i = 0;
-	while (src[i] && ldest + i < size - 1)
+	destlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	if (destlen >= len)
+		return (len + srclen);
+	j = destlen;
+	while (j < len - 1 && src[i] != '\0')
 	{
-		dest[ldest + i] = src[i];
+		dst[j] = src[i];
+		j++;
 		i++;
 	}
-	dest[ldest + i] = '\0';
-	return (ldest + lsrc);
+	dst[j] = '\0';
+	return (destlen + srclen);
 }
-
-// int main(void)
-// {
-// 	char dest[20] = "Hello, ";
-// 	char src[] = "World!";
-
-// 	printf("original string: %s\n", dest);
-// 	ft_strlcat(dest, src, sizeof(dest));
-// 	printf("final string: %s\n", dest);
-// 	return (0);
-// }
-
-// FUNCTION EXPLANATION
-// #16: the ft_strlcat function is a string manipulation function
-// #16: that concatenates the src string to the dest string, with a size limit
-// #16: dest (char *dest) the destination string
-// #16: where the src (const cahr *src) string will be append.
-// #16: src (const char *src) the source string that will br appended to dest
-// #16: size the maximum size of the dest buffer, including the null terminator
-// #22-23: the function first calculates the lengths
-// #22-23  of dest and src strings using the ft_strlen function.
-// #25-26: if size (size_t size) is 0 it returns the length if src (lsrc)
-// #25-26: as no concatenation can be performed.
-// #27: if the length of dest (ldest) is greater than or equal to size
-// #27: it means that the dest buffer is already full
-// #28: and the function returns the sum of size and the length of src (lsrc).
-// #30-33: otherwise the function enters a loop that appends characters
-// #30-33: from src to dest until either the end of src is reached
-// #30-33: or the remaining spaces in dest (including \0) is exhausted
-// #34: after the loop the function adds a null temrinator to dest
-// #34: to ensure it remains a valid string.
-// #35: finally the function returns the sum of the initial ldest and lsrc.

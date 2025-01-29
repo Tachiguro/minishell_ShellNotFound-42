@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_string.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjbogisc <bjbogisc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jherzog <jherzog@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 12:08:17 by bjbogisc          #+#    #+#             */
-/*   Updated: 2024/08/15 11:44:07 by bjbogisc         ###   ########.fr       */
+/*   Created: 2023/09/26 20:28:09 by jherzog           #+#    #+#             */
+/*   Updated: 2023/09/26 20:36:30 by jherzog          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	print_string(char *str)
+int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int	counter;
 
-	i = 0;
-	if (str == NULL)
+	counter = 0;
+	if (!lst)
+		return (0);
+	while (lst)
 	{
-		return (print_string("(null)"));
+		counter++;
+		lst = lst->next;
 	}
-	while (str[i])
-	{
-		print_char(str[i]);
-		i++;
-	}
-	return (i);
+	return (counter);
 }
-// %s - print a string
