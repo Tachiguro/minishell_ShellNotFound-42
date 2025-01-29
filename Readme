@@ -1,1 +1,69 @@
-Test
+How to work with git:
+
+1. git pull
+2. git status
+3. git add <file/s>
+4. git status
+5. git commmit -m "Comment"
+6. git pull
+7. git push
+
+git log
+
+Links & Sources
+
+Video, wo shell funktion erklärt wird.
+https://www.youtube.com/watch?v=FpljIU9Z-f8
+
+Video, wo shell funktion erklärt wird sehr ausführlich.
+https://www.youtube.com/watch?v=ubt-UjcQUYg&list=PLGU1kcPKHMKj5yA0RPb5AK4QAhexmQwrW&index=4
+
+Erklärung zum Minishell Projekt (Verständnis, Funktionen und dessen Beispiele)
+https://42-cursus.gitbook.io/guide/rank-03/minishell/functions
+
+Guide zu Minishell 42
+https://medium.com/@abkabex/minishell-42-f680eadde592
+
+Guide um eine Shell in C zu programmieren
+https://medium.com/@WinnieNgina/guide-to-code-a-simple-shell-in-c-bd4a3a4c41cd
+
+baue eine mini bash (42 Project)
+https://m4nnb3ll.medium.com/minishell-building-a-mini-bash-a-42-project-b55a10598218
+
+Schreibe deine eigene Shell <.. was das ? ^^ <-- eine pdf die erklärt, wie man eine eigene Shell schreibt
+https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf
+
+Generelle Shell erklärung (Was is eine Shell?)
+https://www.datacamp.com/blog/what-is-shell
+
+
+================================================================================================
+Planung:
+
+Also von dem was ich verstanden habe, müssen wir eine Schnittstelle programmieren,
+in der Befehle ausgeführt werden können und auch quasi miteinanden kombiniert werden können mit | und < oder >
+
+habe soweit alles gepusht was ich beim testen geschrieben habe, musste die Makefile anpassen, damit es kompilieren kann.
+Die Funktion "prompt.c" erwartet einen Input, liest ihn und gibt ihn wieder aus, history funktioniert, man kann mit den Pfeiltasten hoch und runter gehen,
+um zu sehen was eingegeben wurde.
+Die Current Working Directory wird auch mit ausgegeben, was allerdings später nur mit "pwd" passieren soll.
+
+
+1.  Search and launch the right executable (based on the PATH variable or using a
+relative or an absolute path).
+
+Bsp. 
+Search and launch the right executable (based on the PATH variable or using a
+relative or an absolute path).
+	cat
+	/usr/bin/cat
+
+Unterschied ist nut "/"
+
+2. env == $PATH +/-
+   - Beim start einlesen (ausfuren von ./shell*)
+   - Eigene Variablen anpassen wie SHELL, SHLVL, OLDPWD
+
+3. zuerst apsoluter path dann relativer
+
+
