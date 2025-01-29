@@ -6,7 +6,7 @@
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:55:25 by aortmann          #+#    #+#             */
-/*   Updated: 2025/01/19 18:33:12 by aortmann         ###   ########.fr       */
+/*   Updated: 2025/01/25 13:54:12 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	contains_slash(char *cmd)
 	}
 	return (0);
 }
-/*
+/* ///NEXT!!!!!!!!!!!!!!!!! check envi variable for cmd !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 char    *find_executable_path(char *cmd, char **envp)
 {
 	char	*path_env;
@@ -99,7 +99,6 @@ char    *find_executable_path(char *cmd, char **envp)
 	
     // 3. Return a newly allocated string if found, or NULL if not.
 }
-
 
 int	exec_external(char *cmd, char **args)
 {
@@ -125,7 +124,6 @@ int	exec_external(char *cmd, char **args)
 		waitpid(pid, status, 0);
 	
 }*/
-
 
 int	is_built_in(char *cmd)
 {
@@ -176,6 +174,12 @@ void	init_env(t_env *envi)
 		{
 			// handle allocation error
 			// ideally free what was allocated so far
+			while (i > 0)
+			{
+				free(envi->env[i]);
+				i--;
+			}
+			free(envi); //test me
 			return ;
 		}
 		// copy the string
@@ -191,7 +195,6 @@ void	init_env(t_env *envi)
 	// 4. Null-terminate the array of pointers
 	envi->env[i] = NULL;
 }
-
 
 void	print_env(t_env *envi)
 {

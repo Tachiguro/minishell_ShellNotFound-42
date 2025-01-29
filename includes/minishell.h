@@ -6,7 +6,7 @@
 /*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:10:44 by bjbogisc          #+#    #+#             */
-/*   Updated: 2025/01/07 16:43:28 by aortmann         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:52:31 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,28 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+
+typedef struct s_xlist //execution list fill me in tokenization
+{
+	char			**redirectors;
+	char			*outfile;
+	char			*new_out;
+	char			*infile;
+	char			*new_in;
+	char			**flags;
+	char			**args;
+	struct s_xlist	*next;
+	char			*cmd;
+	char			*re;
+}	t_exec_pipe;
+
+typedef struct s_structs //struct with references for all other structs
+{
+	t_env		*environs;
+	t_exec_pipe	*xpipe;
+	t_vars		*vars;
+	t_exec		*exe;
+}	t_str;
 
 
 char		*promt(void);
