@@ -12,12 +12,10 @@ TEST_OBJDIR = tests/obj
 
 LDFLAGS = -L$(LIBFT_DIR) -lft -lreadline
 
-SRC =	error_handling.c	\
-		syntax.c			\
-		buildins.c			\
-		tokenization.c		\
-		utils.c				\
-		parser.c
+SRC = exec_utils.c utils.c redirect.c parser.c syntax.c error_handling.c \
+      exec_test.c enivronmental.c exec_pipeline.c built_in_commands2.c \
+      tokenization.c built_in_commands.c cleanup.c
+
 
 OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
 

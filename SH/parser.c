@@ -27,7 +27,7 @@ static void	parse_redirections(t_token **head, t_tree *cmd_node)
 			print_error("ERROR redirection");
 			break ;
 		}
-		*filename = ft_strdup((*head)->value);
+		filename = ft_strdup((*head)->value);
 		*head = (*head)->next;
 		if (redir_type == T_IN)
 		{

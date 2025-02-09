@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buildins.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jherzog <jherzog@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: aortmann <aortmann@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 18:50:47 by jherzog           #+#    #+#             */
-/*   Updated: 2025/01/29 14:42:24 by jherzog          ###   ########.fr       */
+/*   Created: 2025/01/26 21:14:25 by aortmann          #+#    #+#             */
+/*   Updated: 2025/01/26 21:15:50 by aortmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sh.h"
+#include "libft.h"
 
-void	ft_exit(char *line)
+int ft_strcmp(const char *str1, const char *str2)
 {
-	free(line);
-	clear_history();
-	exit(0);
+	while (*str1 && (*str1 == *str2)) {
+		str1++;
+		str2++;
+	}
+	return (*(unsigned char *)str1 - *(unsigned char *)str2);
 }
-
-// void	ft_echo(char *text)
-// //TODO: -n inplement
-// {
-// 	ft_printf("%s", text);
-// }

@@ -36,8 +36,10 @@ int	main(void)
 			print_error("Syntax is not correct!");
 			continue ;
 		}
-		if (ft_strnstr(line, "exit", ft_strlen(line)))
-			ft_exit(line);
+		if (ft_strnstr(line, "exit", ft_strlen(line))) //i need exit with args, arg 1 == error code
+		{
+			exe(NULL, 1);
+		}
 		to_head = create_tokens(line);
 		if (!to_head)
 			print_error("Something is wrong... -> (!to_head)");
@@ -45,10 +47,12 @@ int	main(void)
 		print_tokens(to_head);
 		if (!tr_head)
 			print_error("Something is wrong... -> (!tr_head)");
-		print_tree(tr_head, 0);
-		free_tokens(to_head);
-		free_tree(tr_head);
 		free(line);
+		exe(tr_head, 0);
+		//break ; //>>>>>>>
 	}
+	print_tree(tr_head, 0);
+	free_tokens(to_head);
+	free_tree(tr_head);
 	return (0);
 }

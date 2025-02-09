@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -69,6 +70,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 // ft_printf
+int		ft_numlen(int n);
 int		ft_printf(const char *format, ...);
 int		ft_print_char(char c);
 int		ft_print_str(char *str);
@@ -76,5 +78,7 @@ int		ft_print_int(int n);
 int		ft_print_uint(unsigned int n);
 int		ft_print_hex(unsigned int n, char begin);
 int		ft_print_ptr(unsigned long n);
-
+int		ft_strcmp(const char *str1, const char *str2);
+void	**ft_array_dup(void **src, char *type);
+char	*ft_xappend(char *str1, char *str2, bool space, int clean);
 #endif
