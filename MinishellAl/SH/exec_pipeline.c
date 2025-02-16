@@ -184,8 +184,6 @@ static void exec_pipe(t_str *stru)
 
 // > (Output Redirection):
 // Redirects the standard output (stdout) of a command to a file, overwriting the file if it already exists.
-// Example:
-
 static void re_out(t_str *stru)
 {
     pid_t   pid;
